@@ -107,22 +107,25 @@ const App = {
   },
 
   // ------------------------------------------------------------------------
-  // RENDERIZADO DE LA PORTADA: INTEGRANTES
+  // RENDERIZADO DE LA PORTADA: INTEGRANTES (Solo nombres en orden alfabético)
   // ------------------------------------------------------------------------
   renderCoverTeam() {
     const grid = document.getElementById("cover-team-grid");
     if (!grid || !window.LAB_DATA) return;
 
-    grid.innerHTML = LAB_DATA.teamMembers.map(m => `
-      <div class="student-card" onclick="App.jumpToStudentTopics('${m.id}')" title="Clic para ir a los temas de ${m.name}">
+    // Orden alfabético por apellido (name: "Apellido1 Apellido2, Nombres")
+    const sortedMembers = [...LAB_DATA.teamMembers].sort((a, b) => 
+      a.name.localeCompare(b.name, 'es', { sensitivity: 'base' })
+    );
+
+    grid.innerHTML = sortedMembers.map((m, idx) => `
+      <div class="student-card student-card-clean" onclick="App.jumpToStudentTopics('${m.id}')" title="Clic para ir a la presentación de ${m.name}">
+        <span class="student-order-num">${String(idx + 1).padStart(2, '0')}.</span>
         <div class="student-avatar" style="border-color: ${m.color}; color: ${m.color};">
           ${m.avatar}
         </div>
         <div class="student-info">
           <div class="student-name">${m.name}</div>
-          <div class="student-topics-badge">
-            <span style="color: var(--color-signal-violet); font-weight: 600;">${m.taskLabel}</span>: ${m.topics.map(t => 'Tema ' + (t < 10 ? '0' + t : t)).join(', ')}
-          </div>
         </div>
       </div>
     `).join("");

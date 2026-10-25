@@ -20,6 +20,17 @@ const LAB_DATA = {
 
   teamMembers: [
     {
+      id: "henry",
+      name: "Gutierrez Barrionuevo, Henry Andre",
+      shortName: "Henry",
+      avatar: "HG",
+      color: "#ffff00",
+      topics: [5, 10],
+      taskLabel: "Tarea 1 y Tarea 2",
+      role: "Expositor Temas 05 (Tarea 1) y 10 (Tarea 2)",
+      bio: "Especialista en dinámicas de primer orden, constantes de tiempo y estabilidad de polos reales negativos."
+    },
+    {
       id: "franco",
       name: "Gutierrez Ccolqque, Franco Arturo",
       shortName: "Franco",
@@ -31,26 +42,15 @@ const LAB_DATA = {
       bio: "Especialista en caracterización de respuesta al impulso LTI y mapeo en el plano complejo s."
     },
     {
-      id: "jeremy",
-      name: "Villalta Checalla, Gianluigi Jeremy",
-      shortName: "Jeremy",
-      avatar: "JV",
-      color: "#665eff",
-      topics: [3, 4],
-      taskLabel: "Tarea 1 (Pág. 5)",
-      role: "Expositor Temas 03 y 04 (Tarea 1)",
-      bio: "Especialista en convolución numérica en el dominio temporal y análisis espectral con diagramas de Bode."
-    },
-    {
-      id: "henry",
-      name: "Gutierrez Barrionuevo, Henry Andre",
-      shortName: "Henry",
-      avatar: "HG",
-      color: "#ffff00",
-      topics: [5, 10],
-      taskLabel: "Tarea 1 y Tarea 2",
-      role: "Expositor Temas 05 (Tarea 1) y 10 (Tarea 2)",
-      bio: "Especialista en dinámicas de primer orden, constantes de tiempo y estabilidad de polos reales negativos."
+      id: "benjamin",
+      name: "Quispe Flores, Benjamín Eduardo",
+      shortName: "Benjamín",
+      avatar: "BQ",
+      color: "#ff8a76",
+      topics: [9],
+      taskLabel: "Tarea 2 (Pág. 9)",
+      role: "Expositor Tema 09 (Tarea 2)",
+      bio: "Especialista en excitación impulsiva, conformación de pulsos de RF y resonadores de microondas."
     },
     {
       id: "alex",
@@ -75,15 +75,15 @@ const LAB_DATA = {
       bio: "Especialista en régimen sobreamortiguado, efecto de polo dominante y filtrado sin resonancias."
     },
     {
-      id: "benjamin",
-      name: "Quispe Flores, Benjamín Eduardo",
-      shortName: "Benjamín",
-      avatar: "BQ",
-      color: "#ff8a76",
-      topics: [9],
-      taskLabel: "Tarea 2 (Pág. 9)",
-      role: "Expositor Tema 09 (Tarea 2)",
-      bio: "Especialista en excitación impulsiva, conformación de pulsos de RF y resonadores de microondas."
+      id: "jeremy",
+      name: "Villalta Checalla, Gianluigi Jeremy",
+      shortName: "Jeremy",
+      avatar: "JV",
+      color: "#665eff",
+      topics: [3, 4],
+      taskLabel: "Tarea 1 (Pág. 5)",
+      role: "Expositor Temas 03 y 04 (Tarea 1)",
+      bio: "Especialista en convolución numérica en el dominio temporal y análisis espectral con diagramas de Bode."
     }
   ],
 

@@ -26,7 +26,8 @@ const LAB_DATA = {
       avatar: "FG",
       color: "#0067ff",
       topics: [1, 2],
-      role: "Expositor Temas 1 y 2",
+      taskLabel: "Tarea 1 (Pág. 5)",
+      role: "Expositor Temas 01 y 02 (Tarea 1)",
       bio: "Especialista en caracterización de respuesta al impulso LTI y mapeo en el plano complejo s."
     },
     {
@@ -36,7 +37,8 @@ const LAB_DATA = {
       avatar: "JV",
       color: "#665eff",
       topics: [3, 4],
-      role: "Expositor Temas 3 y 4",
+      taskLabel: "Tarea 1 (Pág. 5)",
+      role: "Expositor Temas 03 y 04 (Tarea 1)",
       bio: "Especialista en convolución numérica en el dominio temporal y análisis espectral con diagramas de Bode."
     },
     {
@@ -46,7 +48,8 @@ const LAB_DATA = {
       avatar: "HG",
       color: "#ffff00",
       topics: [5, 10],
-      role: "Expositor Temas 5 y 10",
+      taskLabel: "Tarea 1 y Tarea 2",
+      role: "Expositor Temas 05 (Tarea 1) y 10 (Tarea 2)",
       bio: "Especialista en dinámicas de primer orden, constantes de tiempo y estabilidad de polos reales negativos."
     },
     {
@@ -56,7 +59,8 @@ const LAB_DATA = {
       avatar: "AQ",
       color: "#ff3a63",
       topics: [6, 7],
-      role: "Expositor Temas 6 y 7",
+      taskLabel: "Tarea 2 (Pág. 9)",
+      role: "Expositor Temas 06 y 07 (Tarea 2)",
       bio: "Especialista en oscilaciones amortiguadas, lazos PLL y sobrepaso transitorio en sistemas de 2do orden."
     },
     {
@@ -66,7 +70,8 @@ const LAB_DATA = {
       avatar: "ZU",
       color: "#02e5ef",
       topics: [8],
-      role: "Expositor Tema 8",
+      taskLabel: "Tarea 2 (Pág. 9)",
+      role: "Expositor Tema 08 (Tarea 2)",
       bio: "Especialista en régimen sobreamortiguado, efecto de polo dominante y filtrado sin resonancias."
     },
     {
@@ -76,7 +81,8 @@ const LAB_DATA = {
       avatar: "BQ",
       color: "#ff8a76",
       topics: [9],
-      role: "Expositor Tema 9",
+      taskLabel: "Tarea 2 (Pág. 9)",
+      role: "Expositor Tema 09 (Tarea 2)",
       bio: "Especialista en excitación impulsiva, conformación de pulsos de RF y resonadores de microondas."
     }
   ],
@@ -85,6 +91,7 @@ const LAB_DATA = {
     {
       id: 1,
       number: "01",
+      taskGroup: "TAREA N° 1 // PÁG. 5",
       title: "Respuesta al Impulso de un Sistema LTI",
       presenterId: "franco",
       systemType: "Segundo Orden - Polos Reales Distintos",
@@ -146,9 +153,10 @@ plt.show()`,
     {
       id: 2,
       number: "02",
-      title: "Función de Transferencia y Mapa de Polos y Ceros",
+      taskGroup: "TAREA N° 1 // PÁG. 5",
+      title: "Función de Transferencia de un Sistema LTI",
       presenterId: "franco",
-      systemType: "Segundo Orden con 1 Cero y 2 Polos",
+      systemType: "Segundo Orden - Definición y Mapa de Polos y Ceros",
       mathSummary: "H(s) = \\frac{2s + 5}{s^2 + 4s + 3} = \\frac{2(s + 2.5)}{(s + 1)(s + 3)}",
       mathDetail: "\\text{Cero: } s = -2.5 \\quad \\big| \\quad \\text{Polos: } s_1 = -1, \\; s_2 = -3",
       parameters: [
@@ -227,9 +235,10 @@ plt.show()`,
     {
       id: 3,
       number: "03",
-      title: "Respuesta al Impulso: Analítica vs Convolución Numérica",
+      taskGroup: "TAREA N° 1 // PÁG. 5",
+      title: "Respuesta al Impulso de un Sistema",
       presenterId: "jeremy",
-      systemType: "Segundo Orden Subamortiguado - Dual Solution",
+      systemType: "Segundo Orden - Solución Analítica vs Convolución Numérica",
       mathSummary: "H(s) = \\frac{1}{s^2 + 2s + 2} = \\frac{1}{(s+1)^2 + 1}",
       mathDetail: "h(t) = e^{-t}\\sin(t)u(t) \\quad \\longleftrightarrow \\quad y(t) = \\int_0^t x(\\tau)h(t-\\tau)d\\tau \\approx \\sum_k x[k]h[n-k]\\Delta t",
       parameters: [
@@ -316,9 +325,10 @@ plt.show()`,
     {
       id: 4,
       number: "04",
-      title: "Respuesta en Frecuencia: Diagrama de Bode",
+      taskGroup: "TAREA N° 1 // PÁG. 5",
+      title: "Respuesta en Frecuencia",
       presenterId: "jeremy",
-      systemType: "Segundo Orden - Análisis Espectral en Régimen Permanente",
+      systemType: "Segundo Orden - Diagrama de Bode (Magnitud y Fase)",
       mathSummary: "H(s) = \\frac{10}{s^2 + 2s + 10} \\quad \\xrightarrow{s = j\\omega} \\quad H(j\\omega) = \\frac{10}{(10 - \\omega^2) + j(2\\omega)}",
       mathDetail: "|H(j\\omega)|_{\\text{dB}} = 20\\log_{10}|H(j\\omega)| \\quad \\big| \\quad \\phi(\\omega) = -\\arctan\\left(\\frac{2\\omega}{10 - \\omega^2}\\right)",
       parameters: [
@@ -391,9 +401,10 @@ plt.show()`,
     {
       id: 5,
       number: "05",
-      title: "Sistema de Primer Orden: Respuesta al Escalón Unitario",
+      taskGroup: "TAREA N° 1 // PÁG. 5",
+      title: "Sistema de Primer Orden",
       presenterId: "henry",
-      systemType: "Primer Orden - Constante de Tiempo",
+      systemType: "Primer Orden - Respuesta al Escalón y Constante de Tiempo τ",
       mathSummary: "H(s) = \\frac{1}{\\tau s + 1} = \\frac{1}{2s + 1} \\quad (\\tau = 2\\text{ s})",
       mathDetail: "y(t) = \\left(1 - e^{-t/\\tau}\\right)u(t) = \\left(1 - e^{-t/2}\\right)u(t)",
       parameters: [
@@ -452,9 +463,10 @@ plt.show()`,
     {
       id: 6,
       number: "06",
-      title: "Sistema de segundo orden subamortiguado",
+      taskGroup: "TAREA N° 2 // PÁG. 9",
+      title: "Sistema de Segundo Orden Subamortiguado",
       presenterId: "alex",
-      systemType: "Segundo Orden - Régimen Subamortiguado",
+      systemType: "Segundo Orden - Régimen Subamortiguado (ζ = 0.5)",
       mathSummary: "H(s) = \\frac{\\omega_n^2}{s^2 + 2\\zeta\\omega_n s + \\omega_n^2} = \\frac{9}{s^2 + 3s + 9} \\quad (\\zeta = 0.5, \\; \\omega_n = 3)",
       mathDetail: "y(t) = 1 - \\frac{e^{-\\zeta\\omega_n t}}{\\sqrt{1-\\zeta^2}}\\sin(\\omega_d t + \\phi)u(t) \\quad (\\omega_d = \\omega_n\\sqrt{1-\\zeta^2})",
       parameters: [
@@ -511,9 +523,10 @@ plt.show()`,
     {
       id: 7,
       number: "07",
-      title: "Respuesta al escalón unitario de un sistema de segundo orden",
+      taskGroup: "TAREA N° 2 // PÁG. 9",
+      title: "Respuesta al Escalón Unitario de un Sistema de Segundo Orden",
       presenterId: "alex",
-      systemType: "Segundo Orden - Respuesta al Escalón con Sobreimpulso",
+      systemType: "Segundo Orden - Respuesta al Escalón con Sobreimpulso (ζ = 0.333)",
       mathSummary: "H(s) = \\frac{9}{s^2 + 2s + 9} \\quad (\\omega_n = 3, \\; \\zeta = 0.333)",
       mathDetail: "y(t) = 1 - \\frac{e^{-\\zeta\\omega_n t}}{\\sqrt{1-\\zeta^2}}\\sin\\left(\\omega_d t + \\arccos(\\zeta)\\right) \\quad \\Big| \\quad M_p \\approx 32.9\\%",
       parameters: [
@@ -568,6 +581,7 @@ plt.show()`,
     {
       id: 8,
       number: "08",
+      taskGroup: "TAREA N° 2 // PÁG. 9",
       title: "Sistema de Segundo Orden Sobreamortiguado",
       presenterId: "zaul",
       systemType: "Segundo Orden Sobreamortiguado - Polos Reales Separados",
@@ -635,9 +649,10 @@ plt.show()`,
     {
       id: 9,
       number: "09",
-      title: "Sistema con Respuesta al Impulso Oscilatoria",
+      taskGroup: "TAREA N° 2 // PÁG. 9",
+      title: "Sistema con Respuesta Impulso",
       presenterId: "benjamin",
-      systemType: "Segundo Orden Subamortiguado - Impulso h(t)",
+      systemType: "Segundo Orden - Respuesta Impulsiva Oscilatoria h(t)",
       mathSummary: "H(s) = \\frac{4}{s^2 + 2s + 8} \\quad (\\omega_n = \\sqrt{8} \\approx 2.83, \\; \\zeta = \\frac{1}{\\sqrt{8}} \\approx 0.354)",
       mathDetail: "h(t) = \\frac{4}{\\sqrt{7}} e^{-t} \\sin\\left(\\sqrt{7}t\\right)u(t) \\approx 1.51 e^{-t}\\sin(2.65t)u(t)",
       parameters: [
@@ -697,6 +712,7 @@ plt.show()`,
     {
       id: 10,
       number: "10",
+      taskGroup: "TAREA N° 2 // PÁG. 9",
       title: "Sistema de Primer Orden con Polo Real Negativo",
       presenterId: "henry",
       systemType: "Primer Orden - Comparativa Escalón vs Impulso",
@@ -808,7 +824,7 @@ plt.show()`,
     {
       studentId: "franco",
       name: "Gutierrez Ccolqque, Franco Arturo",
-      topicsCovered: "Temas 1 y 2: Respuesta al Impulso LTI y Función de Transferencia con Mapa de Polos y Ceros",
+      topicsCovered: "Tarea 1 // Temas 01 y 02: Respuesta al Impulso de un Sistema LTI y Función de Transferencia de un Sistema LTI",
       conclusions: [
         "Se comprobó experimental y teóricamente que la respuesta al impulso h(t) constituye el identificador intrínseco de un sistema LTI; para el sistema H(s) = 1/(s² + 3s + 2), la salida h(t) = (e^(-t) - e^(-2t))u(t) demostró que la estabilidad BIBO depende exclusivamente de que los polos reales se sitúen en el semiplano izquierdo.",
         "El mapeo de polos y ceros en el plano complejo s permitió visualizar con precisión la correlación directa entre la ubicación algebraica de las singularidades y la dinámica transitoria del sistema, constatando que el cero en s = -2.5 influye marcadamente en la rapidez de elevación sin comprometer la estabilidad asintótica.",
@@ -818,7 +834,7 @@ plt.show()`,
     {
       studentId: "jeremy",
       name: "Villalta Checalla, Gianluigi Jeremy",
-      topicsCovered: "Temas 3 y 4: Respuesta al Impulso Numérica vs Analítica y Diagrama de Bode",
+      topicsCovered: "Tarea 1 // Temas 03 y 04: Respuesta al Impulso de un Sistema y Respuesta en Frecuencia",
       conclusions: [
         "La implementación de la convolución numérica mediante una aproximación discreta de la delta de Dirac con área unitaria (1/Δt) validó empíricamente que la integral de convolución converge fielmente a la respuesta analítica h(t) = e^(-t)sin(t), con un error cuadrático despreciable sujeto a la resolución del paso de muestreo dt.",
         "El Diagrama de Bode reveló el comportamiento selectivo en frecuencia del sistema H(s) = 10/(s² + 2s + 10), evidenciando un pico de resonancia a ω_r = 2.83 rad/s y un roll-off en alta frecuencia de -40 dB/década con una transición de fase de 0° a -180°, parámetro crítico para el diseño de filtros sintonizados de RF.",
@@ -828,7 +844,7 @@ plt.show()`,
     {
       studentId: "henry",
       name: "Gutierrez Barrionuevo, Henry Andre",
-      topicsCovered: "Temas 5 y 10: Sistema de Primer Orden al Escalón y con Polo Real Negativo",
+      topicsCovered: "Tarea 1 y Tarea 2 // Temas 05 y 10: Sistema de Primer Orden y Sistema de Primer Orden con Polo Real Negativo",
       conclusions: [
         "Se verificó la propiedad fundamental de los sistemas de primer orden H(s) = 1/(τs + 1), donde la constante de tiempo τ = 2 s rige rigurosamente el transitorio, alcanzando exactamente el 63.2% de la salida en t = τ y el estado estacionario al 98.2% en t = 4τ (8 s), sin presentar oscilaciones.",
         "El análisis simultáneo del sistema H(s) = 6/(s + 3) constató que la respuesta al impulso h(t) = 6e^(-3t) es la derivada temporal directa de la respuesta al escalón y(t) = 2(1 - e^(-3t)), evidenciando cómo una mayor distancia del polo negativo al eje imaginario acelera exponencialmente el decaimiento de la energía residual.",
@@ -838,17 +854,17 @@ plt.show()`,
     {
       studentId: "alex",
       name: "Quispe Yncarroque, Alex Cesar",
-      topicsCovered: "Temas 6 y 7: Sistema de Segundo Orden Críticamente Amortiguado y Subamortiguado",
+      topicsCovered: "Tarea 2 // Temas 06 y 07: Sistema de Segundo Orden Subamortiguado y Respuesta al Escalón Unitario de un Sistema de Segundo Orden",
       conclusions: [
-        "El estudio comparativo del factor de amortiguamiento ζ evidenció que el sistema críticamente amortiguado (ζ = 1, ω_n = 3) alcanza el estado permanente en el menor tiempo posible sin oscilaciones, siendo la condición predilecta para la estabilización sin saltos de ciclo en lazos de seguimiento de fase (PLL).",
-        "Para el sistema subamortiguado H(s) = 9/(s² + 2s + 9) con ζ = 0.333, se cuantificó un sobreimpulso porcentual del 32.9% y un tiempo de pico t_p = 1.11 s, demostrando la necesidad de calibrar cuidadosamente el compromiso entre rapidez de respuesta y margen de seguridad en amplificadores de potencia.",
-        "Se verificó la plena interoperabilidad entre los métodos signal.step de Python y step de MATLAB, comprobando que las ecuaciones analíticas de sobreimpulso Mp y frecuencia amortiguada ωd describen con absoluta fidelidad las trayectorias de las simulaciones numéricas."
+        "En el Tema 6 se constató que cuando el factor de amortiguamiento se encuentra en el rango 0 < ζ < 1, el sistema de segundo orden opera en régimen subamortiguado con polos complejos conjugados en s = -ζω_n ± jω_d, produciendo oscilaciones transitorias cuya frecuencia angular amortiguada ω_d rige la cadencia de la respuesta.",
+        "Para el sistema del Tema 7 H(s) = 9/(s² + 2s + 9) con ζ = 0.333 y ω_n = 3 rad/s, se cuantificó un sobreimpulso porcentual pronunciado del 32.9% en t_p = 1.11 s, demostrando la necesidad de calibrar cuidadosamente el amortiguamiento en etapas de amplificación RF para evitar saturación de transistores de potencia.",
+        "Se verificó la plena interoperabilidad entre los métodos signal.step de Python y step de MATLAB, comprobando que las ecuaciones analíticas de sobreimpulso Mp y tiempo de asentamiento ts describen con absoluta fidelidad las trayectorias de las simulaciones numéricas ante escalón unitario."
       ]
     },
     {
       studentId: "zaul",
       name: "Uturunco Cuela, Zaul Francisco",
-      topicsCovered: "Tema 8: Sistema de Segundo Orden Sobreamortiguado",
+      topicsCovered: "Tarea 2 // Tema 08: Sistema de Segundo Orden Sobreamortiguado",
       conclusions: [
         "Al simular el sistema sobreamortiguado H(s) = 16/(s² + 16s + 16) con ζ = 2.0 y ω_n = 4, se demostró la aparición de dos polos reales negativos bien diferenciados en s₁ = -1.07 y s₂ = -14.93, suprimiendo por completo cualquier componente oscilatoria o sobrepaso.",
         "Se comprobó experimentalmente el principio del 'Polo Dominante', en el cual el polo s₁ = -1.07, al estar significativamente más próximo al eje jω, dicta casi el 95% de la lentitud y duración del transitorio temporal, mientras que el polo s₂ decae rápidamente de forma casi imperceptible.",
@@ -858,7 +874,7 @@ plt.show()`,
     {
       studentId: "benjamin",
       name: "Quispe Flores, Benjamín Eduardo",
-      topicsCovered: "Tema 9: Sistema con Respuesta al Impulso Oscilatoria",
+      topicsCovered: "Tarea 2 // Tema 09: Sistema con Respuesta Impulso",
       conclusions: [
         "El análisis de la respuesta impulsiva para H(s) = 4/(s² + 2s + 8) corroboró analíticamente la expresión h(t) = (4/√7)e^(-t)sin(√7·t)u(t), evidenciando una oscilación sinusoidal cuya amplitud se encuentra estrictamente modulada por la envolvente exponencial decreciente e^(-t).",
         "Se constató que la tasa de amortiguamiento de la envolvente está gobernada únicamente por la parte real de los polos complejos conjugados (σ = -1), mientras que la frecuencia de oscilación de los cruces por cero está fijada por la parte imaginaria (ω_d = √7 ≈ 2.65 rad/s).",

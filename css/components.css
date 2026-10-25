@@ -595,6 +595,25 @@
   letter-spacing: 0.05em;
 }
 
+.topic-task-pill {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  color: #38bdf8;
+  background: rgba(56, 189, 248, 0.12);
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  padding: 3px 10px;
+  border-radius: var(--radius-pills);
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+
+[data-theme="light"] .topic-task-pill {
+  color: #0284c7;
+  background: rgba(2, 132, 199, 0.08);
+  border-color: rgba(2, 132, 199, 0.25);
+}
+
 .topic-system-tag {
   font-size: 12px;
   color: var(--color-misted-slate);
@@ -1192,4 +1211,224 @@
 .toast.show {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* --------------------------------------------------------------------------
+   11. BOTÓN DE ALTERNAR TEMA (DARK / LIGHT)
+   -------------------------------------------------------------------------- */
+.btn-theme-toggle {
+  background: transparent;
+  border: 1px solid var(--color-slate-edge);
+  color: var(--color-cloud-white);
+  width: 38px;
+  height: 38px;
+  border-radius: var(--radius-buttons);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 15px;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-theme-toggle:hover {
+  background: var(--color-steel-panel);
+  border-color: var(--color-signal-violet);
+  transform: translateY(-1px);
+  color: var(--color-signal-violet);
+}
+
+/* --------------------------------------------------------------------------
+   12. ADAPTACIONES ESPECÍFICAS DE COMPONENTES PARA MODO CLARO
+   -------------------------------------------------------------------------- */
+body[data-theme="light"] .navbar-wrapper {
+  background: rgba(255, 255, 255, 0.88);
+  border-bottom: 1px solid #e2e8f0;
+}
+
+body[data-theme="light"] .btn-white {
+  background: #0f172a;
+  color: #ffffff;
+  border-color: #0f172a;
+}
+body[data-theme="light"] .btn-white:hover {
+  background: #1e293b;
+  color: #ffffff;
+}
+
+body[data-theme="light"] .btn-dark {
+  background: #ffffff;
+  color: #0f172a;
+  border-color: #cbd5e1;
+}
+body[data-theme="light"] .btn-dark:hover {
+  background: #f1f5f9;
+  border-color: #6366f1;
+  color: #6366f1;
+}
+
+body[data-theme="light"] .cover-hero-section {
+  background: radial-gradient(ellipse 80% 50% at 50% -20%, rgba(99, 102, 241, 0.08), transparent 70%);
+}
+
+body[data-theme="light"] .cover-logo-wrapper {
+  background: #f8fafc;
+  border-color: #e2e8f0;
+}
+
+body[data-theme="light"] .cover-logo-caption {
+  color: #475569;
+}
+
+body[data-theme="light"] .cover-lab-pill {
+  background: #f1f5f9;
+  border-color: #cbd5e1;
+  color: #1e293b;
+}
+
+body[data-theme="light"] .student-card {
+  background: #ffffff;
+  border-color: #e2e8f0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+body[data-theme="light"] .student-card:hover {
+  background: #f8fafc;
+  border-color: #6366f1;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.06);
+}
+
+body[data-theme="light"] .student-avatar {
+  background: #f1f5f9;
+  border-color: #e2e8f0;
+}
+
+body[data-theme="light"] .latex-formula-container {
+  background: #f8fafc;
+  border-color: #e2e8f0;
+  color: #0f172a;
+}
+
+body[data-theme="light"] .telecom-utility-box {
+  background: rgba(99, 102, 241, 0.05);
+  border-color: rgba(99, 102, 241, 0.2);
+}
+
+body[data-theme="light"] .topic-presenter-badge {
+  background: #f1f5f9;
+  border-color: #e2e8f0;
+}
+
+body[data-theme="light"] .topic-analysis-box {
+  background: #f8fafc;
+  border-color: #e2e8f0;
+}
+
+body[data-theme="light"] .code-window-frame {
+  background: #f8fafc;
+  border-color: #e2e8f0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+body[data-theme="light"] .code-window-header {
+  background: #f1f5f9;
+  border-bottom: 1px solid #e2e8f0;
+}
+body[data-theme="light"] .code-tab-btn.active {
+  background: #ffffff;
+  color: #0f172a;
+  border: 1px solid #e2e8f0;
+}
+body[data-theme="light"] .code-copy-btn {
+  border-color: #cbd5e1;
+  color: #334155;
+}
+body[data-theme="light"] .code-copy-btn:hover {
+  background: #ffffff;
+  color: #0f172a;
+}
+body[data-theme="light"] .code-body-pre {
+  background: #f8fafc;
+  color: #0f172a;
+}
+
+/* Sintaxis en modo claro */
+body[data-theme="light"] .hl-kw { color: #7c3aed; font-weight: 600; }
+body[data-theme="light"] .hl-fn { color: #0284c7; }
+body[data-theme="light"] .hl-lib { color: #0891b2; font-weight: 500; }
+body[data-theme="light"] .hl-str { color: #16a34a; }
+body[data-theme="light"] .hl-num { color: #d97706; }
+body[data-theme="light"] .hl-comment { color: #64748b; font-style: italic; }
+
+/* Contenedor de gráficas en modo claro */
+body[data-theme="light"] .graph-window-frame {
+  background: #ffffff;
+  border-color: #e2e8f0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+body[data-theme="light"] .graph-window-header {
+  background: #f1f5f9;
+  border-bottom: 1px solid #e2e8f0;
+}
+body[data-theme="light"] .graph-canvas-container {
+  background: #ffffff;
+  border: 1px solid #f1f5f9;
+}
+
+/* Conclusiones y referencias en modo claro */
+body[data-theme="light"] .conclusion-card {
+  background: #ffffff;
+  border-color: #e2e8f0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+body[data-theme="light"] .biblio-table th {
+  background: #f1f5f9;
+  color: #0f172a;
+  border-bottom: 1px solid #e2e8f0;
+}
+body[data-theme="light"] .biblio-table td {
+  color: #334155;
+  border-bottom: 1px solid #e2e8f0;
+}
+body[data-theme="light"] .biblio-table tr:hover td {
+  background: #f8fafc;
+}
+body[data-theme="light"] .site-footer {
+  background: #ffffff;
+  border-top: 1px solid #e2e8f0;
+}
+
+/* Dock de presentación en modo claro */
+body[data-theme="light"] .presentation-dock {
+  background: rgba(255, 255, 255, 0.94);
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.12), 0 0 20px rgba(99, 102, 241, 0.15);
+}
+body[data-theme="light"] .dock-btn {
+  background: #f1f5f9;
+  border-color: #cbd5e1;
+  color: #0f172a;
+}
+body[data-theme="light"] .dock-btn:hover {
+  background: #6366f1;
+  border-color: #6366f1;
+  color: #ffffff;
+}
+body[data-theme="light"] .dock-btn:disabled {
+  background: #e2e8f0 !important;
+  color: #94a3b8 !important;
+}
+body[data-theme="light"] .dock-slide-title {
+  color: #0f172a;
+}
+body[data-theme="light"] .dock-pill {
+  border-color: #cbd5e1;
+  color: #475569;
+}
+body[data-theme="light"] .dock-pill:hover {
+  background: #f1f5f9;
+  color: #0f172a;
+}
+body[data-theme="light"] .dock-pill.active {
+  background: rgba(99, 102, 241, 0.15);
+  border-color: #6366f1;
+  color: #4338ca;
 }

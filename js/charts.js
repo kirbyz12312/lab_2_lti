@@ -9,6 +9,26 @@ const ChartManager = {
   activeCharts: {},
 
   getThemeColors() {
+    const isLight = document.body?.getAttribute("data-theme") === "light" ||
+                    document.documentElement?.getAttribute("data-theme") === "light";
+    if (isLight) {
+      return {
+        bg: "#ffffff",
+        grid: "#e2e8f0",
+        textPrimary: "#0f172a",
+        textSecondary: "#475569",
+        linePrimary: "#6366f1",
+        lineSecondary: "#0284c7",
+        accent: "#6366f1",
+        red: "#e11d48",
+        blue: "#0284c7",
+        green: "#059669",
+        amber: "#d97706",
+        purple: "#7c3aed",
+        tooltipBg: "rgba(15, 23, 42, 0.95)",
+        tooltipBorder: "#cbd5e1"
+      };
+    }
     return {
       bg: "#080a0f",
       grid: "#1f1e2a",

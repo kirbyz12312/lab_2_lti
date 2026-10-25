@@ -267,10 +267,10 @@ const LTIEngine = {
   },
 
   /**
-   * Tema 6: Sistema de Segundo Orden (Amortiguamiento Crítico / Subamortiguado)
-   * H(s) = wn^2 / (s^2 + 2*zeta*wn*s + wn^2)
+   * Tema 6: Sistema de Segundo Orden Subamortiguado
+   * H(s) = wn^2 / (s^2 + 2*zeta*wn*s + wn^2) -> wn = 3, zeta = 0.5
    */
-  simulateTopic6(wn = 3.0, zeta = 1.0, tMax = 6.0, points = 300) {
+  simulateTopic6(wn = 3.0, zeta = 0.5, tMax = 6.0, points = 300) {
     return this.simulateSecondOrderStep(wn, zeta, 1.0, tMax, points);
   },
 

@@ -34,6 +34,7 @@ const App = {
 
   init() {
     try {
+      this.initTheme();
       this.renderCoverTeam();
       this.renderTheory();
       this.renderTopics();
@@ -58,6 +59,54 @@ const App = {
   },
 
   // ------------------------------------------------------------------------
+  // GESTIÓN DE TEMA (DARK MODE / LIGHT MODE)
+  // ------------------------------------------------------------------------
+  initTheme() {
+    let savedTheme = "dark";
+    try {
+      savedTheme = localStorage.getItem("epit-lab2-theme") || "dark";
+    } catch (e) {}
+    this.setTheme(savedTheme, false);
+  },
+
+  toggleTheme() {
+    const current = document.body.getAttribute("data-theme") || "dark";
+    const next = current === "dark" ? "light" : "dark";
+    this.setTheme(next, true);
+  },
+
+  setTheme(theme, showFeedback = true) {
+    document.documentElement.setAttribute("data-theme", theme);
+    document.body.setAttribute("data-theme", theme);
+
+    try {
+      localStorage.setItem("epit-lab2-theme", theme);
+    } catch (e) {}
+
+    // Actualizar icono en la barra superior
+    const icon = document.getElementById("theme-toggle-icon");
+    if (icon) {
+      icon.className = theme === "light" ? "fa fa-moon" : "fa fa-sun";
+    }
+
+    // Actualizar icono en el dock de presentación
+    const dockIcon = document.getElementById("dock-theme-icon");
+    if (dockIcon) {
+      dockIcon.className = theme === "light" ? "fa fa-moon" : "fa fa-sun";
+    }
+
+    // Re-renderizar simulaciones con los nuevos colores de ejes y cuadrícula
+    if (window.LAB_DATA) {
+      LAB_DATA.topics.forEach(t => this.updateSimulation(t.id));
+      this.runSandboxSimulation();
+    }
+
+    if (showFeedback) {
+      this.showToast(`Modo ${theme === "light" ? "Claro" : "Oscuro"} activado`);
+    }
+  },
+
+  // ------------------------------------------------------------------------
   // RENDERIZADO DE LA PORTADA: INTEGRANTES
   // ------------------------------------------------------------------------
   renderCoverTeam() {
@@ -72,7 +121,7 @@ const App = {
         <div class="student-info">
           <div class="student-name">${m.name}</div>
           <div class="student-topics-badge">
-            <i class="fa fa-layer-group"></i> ${m.topics.map(t => 'Tema ' + (t < 10 ? '0' + t : t)).join(', ')}
+            <span style="color: var(--color-signal-violet); font-weight: 600;">${m.taskLabel}</span>: ${m.topics.map(t => 'Tema ' + (t < 10 ? '0' + t : t)).join(', ')}
           </div>
         </div>
       </div>
@@ -135,6 +184,7 @@ const App = {
             <div class="topic-meta-left">
               <div class="topic-badge-row">
                 <span class="topic-number-pill">EJERCICIO ${topic.number} / 10</span>
+                <span class="topic-task-pill">${topic.taskGroup}</span>
                 <span class="topic-system-tag">${topic.systemType}</span>
               </div>
               <h2 class="topic-title">${topic.title}</h2>
@@ -617,10 +667,17 @@ const App = {
   // ------------------------------------------------------------------------
   bindEvents() {
     window.addEventListener("keydown", (e) => {
-      // Atajo global para alternar presentación
+      // Atajo global para alternar presentación (P)
       if ((e.key === "p" || e.key === "P") && e.target.tagName !== "INPUT") {
         e.preventDefault();
         this.togglePresentationMode();
+        return;
+      }
+
+      // Atajo global para alternar tema claro / oscuro (T)
+      if ((e.key === "t" || e.key === "T") && e.target.tagName !== "INPUT") {
+        e.preventDefault();
+        this.toggleTheme();
         return;
       }
 
@@ -651,6 +708,15 @@ const App = {
       if (this.isPresentationMode && this.currentSlide >= 2 && this.currentSlide <= 11) {
         this.updateSimulation(this.currentSlide - 1);
       }
+    });
+
+    // Botones de Tema
+    document.getElementById("theme-toggle-btn")?.addEventListener("click", () => {
+      this.toggleTheme();
+    });
+
+    document.getElementById("dock-theme-btn")?.addEventListener("click", () => {
+      this.toggleTheme();
     });
 
     document.getElementById("nav-presentation-btn")?.addEventListener("click", () => {

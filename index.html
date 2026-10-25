@@ -65,6 +65,12 @@
       </ul>
 
       <div class="nav-actions">
+        <!-- Botón para alternar Modo Claro / Oscuro -->
+        <button class="btn-theme-toggle" id="theme-toggle-btn" title="Alternar Modo Claro / Oscuro (Tecla T)"
+          aria-label="Cambiar tema">
+          <i class="fa fa-sun" id="theme-toggle-icon"></i>
+        </button>
+
         <!-- Botón para descargar scripts unificados -->
         <a class="btn-dark" href="scripts/analisis_sistemas_lti.py" download="analisis_sistemas_lti.py"
           title="Descargar Script Python Unificado">
@@ -394,7 +400,10 @@
       <button class="dock-pill" onclick="App.filterByPresenter('benjamin')">Benjamín</button>
     </div>
 
-    <!-- Pantalla Completa y Salir -->
+    <!-- Alternar Tema y Pantalla Completa -->
+    <button class="dock-btn" id="dock-theme-btn" title="Alternar Modo Claro / Oscuro (Tecla T)">
+      <i class="fa fa-sun" id="dock-theme-icon"></i>
+    </button>
     <button class="dock-btn" id="dock-fs-btn" title="Alternar Pantalla Completa (F / F11)">
       <i class="fa fa-expand"></i>
     </button>

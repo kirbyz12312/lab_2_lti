@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Laboratorio 02: Sistemas en Tiempo Continuo | UNSA Telecomunicaciones</title>
+  <meta name="description"
+    content="Plataforma interactiva en modo presentación del Laboratorio 02: Sistemas en Tiempo Continuo para la Escuela Profesional de Ingeniería de Telecomunicaciones - UNSA.">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/Escudo_UNSA.png">
+
+  <!-- Google Fonts: Inter & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
+    rel="stylesheet">
+
+  <!-- KaTeX para renderizado de fórmulas matemáticas en LaTeX -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"></script>
+
+  <!-- Chart.js para simulación gráfica 100% en el cliente (Client-Side) -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Estilos Featurebase (Dark Stage) -->
+  <link rel="stylesheet" href="css/index.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/presentation.css">
+</head>
+
+<body data-theme="dark">
+
+  <!-- Barra de Progreso Superior (en Modo Presentación) -->
+  <div class="presentation-progress-bar" id="presentation-progress-bar"></div>
+
+  <!-- Barra de Navegación Principal (Featurebase Public Navigation Bar) -->
+  <header class="navbar-wrapper">
+    <nav class="navbar" id="main-navbar">
+      <div class="nav-brand">
+        <div class="nav-brand-logos">
+          <img src="assets/Escudo_UNSA.png" alt="Escudo UNSA" title="Universidad Nacional de San Agustín de Arequipa">
+          <img src="assets/LOGO_EPIT.png" alt="Logo Telecomunicaciones"
+            title="Escuela Profesional de Ingeniería de Telecomunicaciones">
+        </div>
+        <div class="nav-brand-text">
+          <span class="nav-brand-title">UNSA</span>
+          <span class="nav-brand-subtitle">SEÑALES Y SISTEMAS LAB 02</span>
+        </div>
+      </div>
+
+      <ul class="nav-links">
+        <li><a class="nav-link" href="#slide-cover" onclick="App.goToSlide(0)">Portada</a></li>
+        <li><a class="nav-link" href="#slide-intro" onclick="App.goToSlide(1)">Introducción</a></li>
+        <li><a class="nav-link" href="#slide-topic-1" onclick="App.goToSlide(2)">Ejercicios</a></li>
+        <li><a class="nav-link" href="#slide-sandbox" onclick="App.goToSlide(12)">Sandbox LTI</a></li>
+        <li><a class="nav-link" href="#slide-conclusions" onclick="App.goToSlide(13)">Conclusiones</a></li>
+        <li><a class="nav-link" href="#slide-biblio" onclick="App.goToSlide(14)">Referencias</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <!-- Botón para descargar scripts unificados -->
+        <a class="btn-dark" href="scripts/analisis_sistemas_lti.py" download="analisis_sistemas_lti.py"
+          title="Descargar Script Python Unificado">
+          <i class="fab fa-python" style="color: #38bdf8;"></i> Python
+        </a>
+        <a class="btn-dark" href="scripts/analisis_sistemas_lti.m" download="analisis_sistemas_lti.m"
+          title="Descargar Script MATLAB Unificado">
+          <i class="fa fa-code" style="color: #fbbf24;"></i> MATLAB
+        </a>
+
+        <!-- Botón de Modo Exposición / Diapositivas -->
+        <button class="btn-white" id="nav-presentation-btn" title="Iniciar presentación en modo diapositivas (Tecla P)">
+          <i class="fa fa-play"></i> Modo Exposición
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container">
+
+    <!-- ====================================================================
+         SLIDE 01: PORTADA OFICIAL (UNSA - TELECOMUNICACIONES)
+         ==================================================================== -->
+    <section class="cover-hero-section deck-slide current-deck-slide" id="slide-cover" data-slide-index="0">
+      <div class="cover-container">
+        <!-- Encabezado con logos a ambos costados -->
+        <div class="cover-header-dual">
+          <div class="cover-logo-wrapper">
+            <img src="assets/Escudo_UNSA.png" alt="Escudo Oficial UNSA" class="cover-logo-img">
+            <span class="cover-logo-caption">UNSA</span>
+          </div>
+
+          <div class="cover-header-titles">
+            <h2 class="cover-inst-name">UNIVERSIDAD NACIONAL DE SAN AGUSTÍN DE AREQUIPA</h2>
+            <h3 class="cover-school-name">ESCUELA PROFESIONAL DE INGENIERÍA DE TELECOMUNICACIONES</h3>
+
+            <div class="cover-lab-pill">
+              <span class="badge-dot"></span>
+              PRÁCTICA DE LABORATORIO N° 02 // ANÁLISIS DE SISTEMAS Y SEÑALES
+            </div>
+
+            <h1 class="cover-main-title">SISTEMAS EN TIEMPO CONTINUO</h1>
+            <p class="cover-course-name">Respuesta al Impulso, Función de Transferencia, Polos-Ceros y Diagramas de Bode
+            </p>
+          </div>
+
+          <div class="cover-logo-wrapper">
+            <img src="assets/LOGO_EPIT.png" alt="Logo Oficial Telecomunicaciones" class="cover-logo-img">
+            <span class="cover-logo-caption">TELECOM</span>
+          </div>
+        </div>
+
+        <!-- Sección de Integrantes justo debajo del título principal -->
+        <div class="cover-team-section">
+          <div class="cover-team-header">
+            <span class="cover-team-heading">Equipo de Trabajo // Estudiantes Expositores</span>
+            <span style="font-size: 12px; color: var(--color-quiet-slate); font-family: var(--font-mono);">6
+              Integrantes</span>
+          </div>
+
+          <div class="cover-team-grid" id="cover-team-grid">
+            <!-- Renderizado dinámicamente con App.renderCoverTeam() -->
+          </div>
+        </div>
+
+        <!-- Pie de la Portada: Docente, Ciudad y Año -->
+        <div class="cover-footer">
+          <div class="cover-docente-box">
+            <div class="cover-docente-icon">
+              <i class="fa fa-chalkboard-teacher"></i>
+            </div>
+            <div class="cover-docente-meta">
+              <span class="cover-docente-label">Docente del Curso:</span>
+              <span class="cover-docente-name">Dr. Asencio Alejandro Huaita Bedregal</span>
+            </div>
+          </div>
+
+          <div class="cover-location-date">
+            <div><i class="fa fa-map-marker-alt" style="color: var(--color-signal-violet);"></i> Arequipa, Perú</div>
+            <div style="color: var(--color-cloud-white); font-weight: 600;">2026</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SLIDE 02: INTRODUCCIÓN GENERAL Y FUNDAMENTOS DE SISTEMAS CONTINUOS LTI
+         ==================================================================== -->
+    <section class="intro-section deck-slide" id="slide-intro" data-slide-index="1">
+      <div class="intro-card">
+        <div
+          style="display: flex; align-items: center; justify-content: space-between; margin-bottom: var(--spacing-16); flex-wrap: wrap; gap: 12px;">
+          <div>
+            <span class="topic-number-pill">FUNDAMENTOS // MARCO TEÓRICO</span>
+            <h2 class="text-section-heading" style="margin-top: 6px;">Sistemas Lineales e Invariantes en el Tiempo (LTI)
+            </h2>
+          </div>
+          <span style="font-size: 13px; font-family: var(--font-mono); color: var(--color-quiet-slate);">Tiempo Continuo
+            $t \in \mathbb{R}$</span>
+        </div>
+
+        <p class="text-lead" style="font-size: 17px; margin-bottom: var(--spacing-24);">
+          Los sistemas en tiempo continuo procesan señales analógicas donde el tiempo fluye de forma continua. Cuando el
+          sistema satisface simultáneamente las propiedades de <strong>linealidad (superposición y
+            homogeneidad)</strong> e <strong>invariancia en el tiempo</strong>, su comportamiento queda totalmente
+          caracterizado por su respuesta al impulso $h(t)$.
+        </p>
+
+        <!-- Cuadrícula de 4 Pilares Teóricos -->
+        <div class="intro-pillars-grid" id="intro-pillars-grid">
+          <!-- Renderizado dinámicamente con App.renderTheory() -->
+        </div>
+
+        <!-- Resumen de Fórmulas Clave en LaTeX -->
+        <div
+          style="margin-top: var(--spacing-24); display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--spacing-16);">
+          <div class="latex-formula-container">
+            $$y(t) = x(t) * h(t) = \int_{-\infty}^{\infty} x(\tau)h(t-\tau)d\tau$$
+          </div>
+          <div class="latex-formula-container">
+            $$H(s) = \mathcal{L}\{h(t)\} = \frac{Y(s)}{X(s)} = \frac{\sum_{m=0}^M b_m s^m}{\sum_{n=0}^N a_n s^n}$$
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SLIDES 03 a 12: LOS 10 EJERCICIOS DEL LABORATORIO
+         ==================================================================== -->
+    <section class="topics-wrapper" id="topics-container">
+      <!-- Los 10 ejercicios se generan e insertan dinámicamente aquí -->
+    </section>
+
+    <!-- ====================================================================
+         SLIDE 13: PLAYGROUND / BANCO DE PRUEBAS LIBRE (SANDBOX LTI)
+         ==================================================================== -->
+    <section class="sandbox-section deck-slide" id="slide-sandbox" data-slide-index="12">
+      <div class="sandbox-card">
+        <div class="topic-header">
+          <div class="topic-meta-left">
+            <span class="topic-number-pill">PLAYGROUND INTERACTIVO // DEMOSTRACIÓN EN VIVO</span>
+            <h2 class="topic-title">Simulador Libre de Funciones de Transferencia LTI</h2>
+          </div>
+          <div class="topic-presenter-badge">
+            <i class="fa fa-flask" style="color: var(--color-cyan-glow);"></i>
+            <span class="topic-presenter-name">Herramienta para Ronda de Preguntas y Evaluación Docente</span>
+          </div>
+        </div>
+
+        <p class="topic-intro-text">
+          Permite al docente o a los expositores ingresar cualquier polinomio de numerador y denominador en potencias
+          descendentes de $s$ para calcular numéricamente y trazar en tiempo real la respuesta al escalón e impulso
+          mediante el motor matemático en JavaScript.
+        </p>
+
+        <div class="sandbox-form-grid">
+          <div class="sandbox-input-group">
+            <label for="sandbox-num">Coeficientes Numerador $[b_m, \dots, b_0]$:</label>
+            <input type="text" id="sandbox-num" class="sandbox-input" value="10" placeholder="Ej: 2, 5">
+          </div>
+          <div class="sandbox-input-group">
+            <label for="sandbox-den">Coeficientes Denominador $[a_n, \dots, a_0]$:</label>
+            <input type="text" id="sandbox-den" class="sandbox-input" value="1, 2, 10" placeholder="Ej: 1, 4, 3">
+          </div>
+          <div class="sandbox-input-group">
+            <label for="sandbox-sim-type">Respuesta Deseada:</label>
+            <select id="sandbox-sim-type" class="sandbox-input" style="cursor: pointer;">
+              <option value="step">Respuesta al Escalón y(t)</option>
+              <option value="impulse">Respuesta al Impulso h(t)</option>
+            </select>
+          </div>
+          <div>
+            <button class="btn-violet" id="sandbox-run-btn" style="height: 42px;">
+              <i class="fa fa-play"></i> Simular H(s)
+            </button>
+          </div>
+        </div>
+
+        <div class="graph-window-frame" style="margin-top: var(--spacing-20);">
+          <div class="graph-window-header">
+            <span class="graph-window-title">
+              <span class="traffic-light green" style="display: inline-block;"></span>
+              Salida del Simulador Científico en Vivo
+            </span>
+            <span class="graph-status-badge">Calculado en el cliente (0 ms latencia)</span>
+          </div>
+          <div class="graph-canvas-container" style="min-height: 340px;">
+            <canvas id="canvas-sandbox"></canvas>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SLIDE 14: CONCLUSIONES INDIVIDUALES DEL LABORATORIO (PÁGINA 9)
+         ==================================================================== -->
+    <section class="conclusions-section deck-slide" id="slide-conclusions" data-slide-index="13">
+      <div class="intro-card">
+        <div
+          style="display: flex; align-items: center; justify-content: space-between; margin-bottom: var(--spacing-16); flex-wrap: wrap; gap: 12px;">
+          <div>
+            <span class="topic-number-pill">RÚBRICA OFICIAL // PÁGINA 9 DE LA GUÍA</span>
+            <h2 class="text-section-heading" style="margin-top: 6px;">Conclusiones del Laboratorio por Estudiante</h2>
+          </div>
+          <span style="font-size: 13px; font-family: var(--font-mono); color: var(--color-quiet-slate);">3 Conclusiones
+            por Integrante (18 Totales)</span>
+        </div>
+
+        <p class="text-body" style="color: var(--color-frost-text); margin-bottom: var(--spacing-20);">
+          En estricto cumplimiento con el ítem 10 de la guía de práctica (página 9), cada estudiante formuló 3
+          conclusiones técnicas individuales fundamentadas en sus experiencias y códigos desarrollados.
+        </p>
+
+        <!-- Grilla de Conclusiones de los 6 Estudiantes -->
+        <div class="conclusions-students-grid" id="conclusions-students-grid">
+          <!-- Renderizado dinámicamente con App.renderConclusions() -->
+        </div>
+
+        <!-- Observaciones Generales -->
+        <div
+          style="margin-top: var(--spacing-32); background: var(--color-ink-surface); border: 1px solid var(--color-slate-edge); border-radius: var(--radius-panels); padding: var(--spacing-24);">
+          <h3
+            style="font-size: 16px; font-weight: 600; color: var(--color-cloud-white); margin-bottom: var(--spacing-16); display: flex; align-items: center; gap: 8px;">
+            <span
+              style="width: 8px; height: 8px; border-radius: 50%; background: var(--color-signal-violet); display: inline-block;"></span>
+            Observaciones Generales de la Práctica (Ítem 9)
+          </h3>
+          <ul id="general-observations-list"
+            style="list-style: none; display: flex; flex-direction: column; gap: 10px;">
+            <!-- Renderizado dinámicamente -->
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SLIDE 15: REFERENCIAS BIBLIOGRÁFICAS FORMALES
+         ==================================================================== -->
+    <section class="biblio-section deck-slide" id="slide-biblio" data-slide-index="14"
+      style="padding: var(--spacing-48) 0;">
+      <div class="intro-card">
+        <span class="topic-number-pill">FUENTES BIBLIOGRÁFICAS // PÁGINA 9</span>
+        <h2 class="text-section-heading" style="margin-top: 6px; margin-bottom: var(--spacing-16);">Bibliografía y
+          Herramientas Empleadas</h2>
+
+        <p class="text-body" style="margin-bottom: var(--spacing-24);">
+          Textos clásicos de ingeniería de telecomunicaciones y documentación oficial de los motores de cálculo
+          simbólico y numérico:
+        </p>
+
+        <div class="biblio-table-frame">
+          <table class="biblio-table">
+            <thead>
+              <tr>
+                <th>Autor(es)</th>
+                <th>Título de la Obra</th>
+                <th>Edición</th>
+                <th>Editorial / Referencia</th>
+                <th>Año</th>
+              </tr>
+            </thead>
+            <tbody id="biblio-tbody">
+              <!-- Renderizado dinámicamente -->
+            </tbody>
+          </table>
+        </div>
+
+        <div
+          style="margin-top: var(--spacing-32); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: var(--spacing-16); padding: var(--spacing-20); background: var(--color-ink-surface); border: 1px solid var(--color-slate-edge); border-radius: var(--radius-panels);">
+          <div>
+            <h4 style="color: var(--color-cloud-white); font-size: 15px; margin-bottom: 4px;">Scripts Unificados
+              Disponibles</h4>
+            <p style="color: var(--color-misted-slate); font-size: 13px;">Descarga y ejecuta los 10 análisis completos
+              en tu equipo local:</p>
+          </div>
+          <div style="display: flex; gap: 12px;">
+            <a class="btn-dark" href="scripts/analisis_sistemas_lti.py" download="analisis_sistemas_lti.py">
+              <i class="fab fa-python" style="color: #38bdf8;"></i> Descargar Python (.py)
+            </a>
+            <a class="btn-dark" href="scripts/analisis_sistemas_lti.m" download="analisis_sistemas_lti.m">
+              <i class="fa fa-code" style="color: #fbbf24;"></i> Descargar MATLAB (.m)
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Pie Institucional (en modo documento continuo) -->
+  <footer class="site-footer">
+    <div class="container">
+      <p>UNIVERSIDAD NACIONAL DE SAN AGUSTÍN DE AREQUIPA — FACULTAD DE INGENIERÍA DE PRODUCCIÓN Y SERVICIOS</p>
+      <p>ESCUELA PROFESIONAL DE INGENIERÍA DE TELECOMUNICACIONES</p>
+      <p class="subline">ANÁLISIS DE SISTEMAS Y SEÑALES — PRÁCTICA N° 02: SISTEMAS EN TIEMPO CONTINUO | AREQUIPA, PERÚ
+        2026</p>
+    </div>
+  </footer>
+
+  <!-- ====================================================================
+       DOCK FLOTANTE DE CONTROL DE PRESENTACIÓN (MODO DIAPOSITIVAS)
+       ==================================================================== -->
+  <aside class="presentation-dock" id="presentation-dock" style="display: none;">
+    <!-- Botón Diapositiva Anterior -->
+    <button class="dock-btn" id="dock-prev-btn" title="Diapositiva Anterior (Flecha Izquierda ◀)">
+      <i class="fa fa-arrow-left"></i>
+    </button>
+
+    <!-- Indicador de Slide Actual -->
+    <div class="dock-slide-info">
+      <span class="dock-slide-num" id="dock-slide-num">SLIDE 01 / 15</span>
+      <span class="dock-slide-title" id="dock-slide-title">Portada Oficial UNSA</span>
+    </div>
+
+    <!-- Botón Siguiente Diapositiva -->
+    <button class="dock-btn" id="dock-next-btn" title="Siguiente Diapositiva (Flecha Derecha ▶ / Espacio)">
+      <i class="fa fa-arrow-right"></i>
+    </button>
+
+    <!-- Filtros de Expositor por Estudiante -->
+    <div class="dock-filter-pills">
+      <button class="dock-pill" onclick="App.filterByPresenter('franco')">Franco</button>
+      <button class="dock-pill" onclick="App.filterByPresenter('jeremy')">Jeremy</button>
+      <button class="dock-pill" onclick="App.filterByPresenter('henry')">Henry</button>
+      <button class="dock-pill" onclick="App.filterByPresenter('alex')">Alex</button>
+      <button class="dock-pill" onclick="App.filterByPresenter('zaul')">Zaul</button>
+      <button class="dock-pill" onclick="App.filterByPresenter('benjamin')">Benjamín</button>
+    </div>
+
+    <!-- Pantalla Completa y Salir -->
+    <button class="dock-btn" id="dock-fs-btn" title="Alternar Pantalla Completa (F / F11)">
+      <i class="fa fa-expand"></i>
+    </button>
+    <button class="dock-btn" id="dock-exit-btn" title="Salir del Modo Exposición (Esc)">
+      <i class="fa fa-times"></i>
+    </button>
+  </aside>
+
+  <!-- Scripts de la Aplicación -->
+  <script src="js/topics-data.js"></script>
+  <script src="js/lti-engine.js"></script>
+  <script src="js/syntax-highlighter.js"></script>
+  <script src="js/charts.js"></script>
+  <script src="js/app.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,1195 @@
+/* ==========================================================================
+   FEATUREBASE COMPONENTS — LAB 02: SISTEMAS EN TIEMPO CONTINUO
+   UNSA — ESCUELA PROFESIONAL DE INGENIERÍA DE TELECOMUNICACIONES
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. NAVIGATION BAR (Featurebase Public Navigation Bar)
+   -------------------------------------------------------------------------- */
+.navbar-wrapper {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+  background: rgba(5, 6, 8, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--color-slate-edge);
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-24);
+}
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-16);
+  text-decoration: none;
+}
+
+.nav-brand-logos {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.nav-brand-logos img {
+  height: 32px;
+  width: auto;
+  object-fit: contain;
+}
+
+.nav-brand-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.nav-brand-title {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--color-cloud-white);
+  text-transform: uppercase;
+}
+
+.nav-brand-subtitle {
+  font-size: 11px;
+  color: var(--color-misted-slate);
+  letter-spacing: 0.02em;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-24);
+  list-style: none;
+}
+
+.nav-link {
+  font-size: var(--text-nav);
+  font-weight: var(--font-weight-medium);
+  line-height: 20px;
+  color: var(--color-frost-text);
+  padding: 8px 4px;
+  position: relative;
+  transition: color 0.15s ease;
+}
+
+.nav-link:hover, .nav-link.active {
+  color: var(--color-cloud-white);
+}
+
+.nav-link.active::after {
+  content: '';
+  position: absolute;
+  bottom: -16px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--color-signal-violet);
+  box-shadow: 0 0 12px var(--color-signal-violet);
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-12);
+}
+
+/* --------------------------------------------------------------------------
+   2. BUTTONS & CONVERSION CONTROLS (Featurebase White & Dark Buttons)
+   -------------------------------------------------------------------------- */
+.btn-white {
+  background: rgba(255, 255, 255, 0.92);
+  color: var(--color-charcoal-panel);
+  font-family: var(--font-inter);
+  font-size: var(--text-nav);
+  font-weight: 600;
+  padding: 8px 16px;
+  border-radius: var(--radius-buttons);
+  border: 1px solid rgba(255, 255, 255, 0.92);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: var(--shadow-subtle);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.btn-white:hover {
+  background: #ffffff;
+  color: #000000;
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-xl);
+}
+
+.btn-dark {
+  background: transparent;
+  color: var(--color-cloud-white);
+  font-family: var(--font-inter);
+  font-size: var(--text-nav);
+  font-weight: var(--font-weight-medium);
+  padding: 8px 16px;
+  border-radius: var(--radius-buttons);
+  border: 1px solid var(--color-slate-edge);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.btn-dark:hover {
+  background: var(--color-steel-panel);
+  border-color: var(--color-misted-slate);
+  color: var(--color-cloud-white);
+}
+
+.btn-violet {
+  background: var(--color-signal-violet);
+  color: var(--color-cloud-white);
+  font-family: var(--font-inter);
+  font-size: var(--text-nav);
+  font-weight: 600;
+  padding: 8px 18px;
+  border-radius: var(--radius-buttons);
+  border: 1px solid var(--color-signal-violet);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 16px rgba(112, 100, 242, 0.3);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.btn-violet:hover {
+  background: #8176f7;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 24px rgba(112, 100, 242, 0.45);
+}
+
+/* --------------------------------------------------------------------------
+   3. COVER / PORTADA INSTITUCIONAL CON LOGOS DUALES
+   -------------------------------------------------------------------------- */
+.cover-hero-section {
+  padding: var(--spacing-48) 0 var(--spacing-64);
+  position: relative;
+  background: radial-gradient(ellipse 80% 50% at 50% -20%, rgba(112, 100, 242, 0.15), transparent 70%);
+}
+
+.cover-container {
+  background: var(--color-charcoal-panel);
+  border: 1px solid var(--color-slate-edge);
+  border-radius: var(--radius-panels);
+  padding: var(--spacing-48);
+  box-shadow: var(--shadow-subtle-2);
+  position: relative;
+  overflow: hidden;
+}
+
+.cover-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--gradient-violet-atmosphere);
+}
+
+/* Encabezado con logos a ambos costados */
+.cover-header-dual {
+  display: grid;
+  grid-template-columns: 140px 1fr 140px;
+  align-items: center;
+  gap: var(--spacing-24);
+  padding-bottom: var(--spacing-32);
+  border-bottom: 1px solid var(--color-slate-edge);
+}
+
+.cover-logo-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+  background: var(--color-ink-surface);
+  border: 1px solid var(--color-slate-edge);
+  border-radius: var(--radius-panels);
+  box-shadow: var(--shadow-subtle);
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.cover-logo-wrapper:hover {
+  transform: translateY(-2px);
+  border-color: var(--color-signal-violet);
+}
+
+.cover-logo-img {
+  width: 96px;
+  height: 96px;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.6));
+}
+
+.cover-logo-caption {
+  font-size: 11px;
+  color: var(--color-quiet-slate);
+  margin-top: 8px;
+  font-weight: 500;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.cover-header-titles {
+  text-align: center;
+}
+
+.cover-inst-name {
+  font-size: 19px;
+  font-weight: 700;
+  color: var(--color-cloud-white);
+  letter-spacing: 0.02em;
+  margin-bottom: 4px;
+}
+
+.cover-school-name {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--color-misted-slate);
+  letter-spacing: 0.03em;
+  margin-bottom: var(--spacing-16);
+}
+
+.cover-lab-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--color-ink-surface);
+  border: 1px solid var(--color-slate-edge);
+  color: var(--color-frost-text);
+  padding: 6px 16px;
+  border-radius: var(--radius-pills);
+  font-size: var(--text-caption);
+  font-weight: var(--font-weight-medium);
+  margin-bottom: 12px;
+}
+
+.cover-lab-pill .badge-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-signal-violet);
+  box-shadow: 0 0 8px var(--color-signal-violet);
+}
+
+.cover-main-title {
+  font-size: 38px;
+  line-height: 1.15;
+  letter-spacing: -0.96px;
+  font-weight: 600;
+  color: var(--color-cloud-white);
+  margin-bottom: 8px;
+}
+
+.cover-course-name {
+  font-size: 16px;
+  color: var(--color-misted-slate);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+}
+
+/* Sección de Integrantes justo debajo del título principal */
+.cover-team-section {
+  margin-top: var(--spacing-32);
+  padding-top: var(--spacing-24);
+}
+
+.cover-team-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--spacing-16);
+}
+
+.cover-team-heading {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-quiet-slate);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.cover-team-heading::before {
+  content: '';
+  width: 14px;
+  height: 2px;
+  background: var(--color-signal-violet);
+}
+
+.cover-team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: var(--spacing-16);
+}
+
+.student-card {
+  background: var(--color-ink-surface);
+  border: 1px solid var(--color-slate-edge);
+  border-radius: var(--radius-buttons);
+  padding: 14px 16px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+  position: relative;
+}
+
+.student-card:hover {
+  background: var(--color-steel-panel);
+  border-color: var(--color-signal-violet);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+.student-avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: var(--color-charcoal-panel);
+  border: 1px solid var(--color-slate-edge);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--color-cloud-white);
+  flex-shrink: 0;
+}
+
+.student-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.student-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-cloud-white);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 2px;
+}
+
+.student-topics-badge {
+  font-size: 11px;
+  font-family: var(--font-mono);
+  color: var(--color-signal-violet);
+  background: rgba(112, 100, 242, 0.12);
+  border: 1px solid rgba(112, 100, 242, 0.3);
+  padding: 2px 8px;
+  border-radius: var(--radius-pills);
+  display: inline-block;
+}
+
+/* Pie de la Portada: Docente y Ciudad */
+.cover-footer {
+  margin-top: var(--spacing-32);
+  padding-top: var(--spacing-20);
+  border-top: 1px solid var(--color-slate-edge);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--spacing-16);
+}
+
+.cover-docente-box {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.cover-docente-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--color-ink-surface);
+  border: 1px solid var(--color-slate-edge);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-signal-violet);
+}
+
+.cover-docente-meta {
+  display: flex;
+  flex-direction: column;
+}
+
+.cover-docente-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-quiet-slate);
+}
+
+.cover-docente-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-cloud-white);
+}
+
+.cover-location-date {
+  font-size: 13px;
+  font-family: var(--font-mono);
+  color: var(--color-misted-slate);
+  text-align: right;
+}
+
+/* --------------------------------------------------------------------------
+   4. INTRODUCCIÓN GENERAL (Featurebase Dark Feature Card)
+   -------------------------------------------------------------------------- */
+.intro-section {
+  padding: var(--spacing-48) 0;
+}
+
+.intro-card {
+  background: var(--color-charcoal-panel);
+  border: 1px solid var(--color-slate-edge);
+  border-radius: var(--radius-panels);
+  padding: var(--spacing-32);
+  box-shadow: var(--shadow-subtle);
+  position: relative;
+}
+
+.intro-pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: var(--spacing-20);
+  margin-top: var(--spacing-24);
+}
+
+.pillar-item {
+  background: var(--color-ink-surface);
+  border: 1px solid var(--color-slate-edge);
+  border-radius: var(--radius-buttons);
+  padding: var(--spacing-20);
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.pillar-item:hover {
+  border-color: var(--color-signal-violet);
+  transform: translateY(-2px);
+}
+
+.pillar-icon-box {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: rgba(112, 100, 242, 0.12);
+  border: 1px solid rgba(112, 100, 242, 0.25);
+  color: var(--color-signal-violet);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--spacing-16);
+  font-size: 18px;
+}
+
+.pillar-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-cloud-white);
+  margin-bottom: 8px;
+}
+
+.pillar-desc {
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--color-misted-slate);
+}
+
+/* --------------------------------------------------------------------------
+   5. TOPIC / EXERCISE CARDS (Estructura Dual Izquierda-Derecha)
+   -------------------------------------------------------------------------- */
+.topics-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-48);
+  padding-bottom: var(--spacing-64);
+}
+
+.topic-card {
+  background: var(--color-charcoal-panel);
+  border: 1px solid var(--color-slate-edge);
+  border-radius: var(--radius-panels);
+  padding: var(--spacing-32);
+  box-shadow: var(--shadow-subtle-2);
+  position: relative;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.topic-card:hover {
+  border-color: rgba(112, 100, 242, 0.4);
+}
+
+.topic-card.active-slide {
+  border-color: var(--color-signal-violet);
+  box-shadow: var(--shadow-violet-rim);
+}
+
+/* Header del Ejercicio */
+.topic-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--spacing-16);
+  padding-bottom: var(--spacing-20);
+  border-bottom: 1px solid var(--color-slate-edge);
+  margin-bottom: var(--spacing-20);
+  flex-wrap: wrap;
+}
+
+.topic-meta-left {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.topic-badge-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.topic-number-pill {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--color-signal-violet);
+  background: rgba(112, 100, 242, 0.12);
+  border: 1px solid rgba(112, 100, 242, 0.3);
+  padding: 3px 10px;
+  border-radius: var(--radius-pills);
+  letter-spacing: 0.05em;
+}
+
+.topic-system-tag {
+  font-size: 12px;
+  color: var(--color-misted-slate);
+  font-weight: 500;
+}
+
+.topic-title {
+  font-size: 24px;
+  line-height: 1.25;
+  font-weight: 600;
+  letter-spacing: -0.5px;
+  color: var(--color-cloud-white);
+}
+
+.topic-presenter-badge {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--color-ink-surface);
+  border: 1px solid var(--color-slate-edge);
+  padding: 6px 14px;
+  border-radius: var(--radius-pills);
+}
+
+.topic-presenter-avatar {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--color-steel-panel);
+  font-size: 11px;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-cloud-white);
+}
+
+.topic-presenter-name {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--color-frost-text);
+}
+
+/* Introducción breve & Fórmula LaTeX */
+.topic-intro-box {
+  margin-bottom: var(--spacing-20);
+}
+
+.topic-intro-text {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--color-frost-text);
+  margin-bottom: var(--spacing-16);
+}
+
+.latex-formula-container {
+  background: var(--color-ink-surface);
+  border: 1px solid var(--color-slate-edge);
+  border-radius: var(--radius-buttons);
+  padding: 14px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow-x: auto;
+  font-size: 16px;
+  margin-bottom: var(--spacing-16);
+  position: relative;
+}
+
+.latex-formula-container::before {
+  content: 'FÓRMULA';
+  position: absolute;
+  top: 4px;
+  left: 8px;
+  font-size: 9px;
+  font-family: var(--font-mono);
+  letter-spacing: 0.08em;
+  color: var(--color-quiet-slate);
+}
+
+/* Caja de Utilidad en Telecomunicaciones */
+.telecom-utility-box {
+  background: rgba(112, 100, 242, 0.06);
+  border: 1px solid rgba(112, 100, 242, 0.22);
+  border-left: 3px solid var(--color-signal-violet);
+  border-radius: var(--radius-buttons);
+  padding: 12px 16px;
+  margin-bottom: var(--spacing-24);
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.telecom-icon {
+  color: var(--color-signal-violet);
+  font-size: 16px;
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+.telecom-utility-content {
+  font-size: 13px;
+  line-height: 1.55;
+  color: var(--color-frost-text);
+}
+
+.telecom-utility-title {
+  font-weight: 600;
+  color: var(--color-cloud-white);
+  margin-right: 6px;
+}
+
+/* Grid Principal: Código a la Izquierda, Gráfica a la Derecha */
+.topic-dual-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-20);
+  align-items: stretch;
+}
+
+@media (max-width: 960px) {
+  .topic-dual-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Columna Izquierda: Visor de Código Dual (MATLAB / Python) */
+.code-window-frame {
+  background: var(--color-ink-surface);
+  border: 1px solid var(--color-slate-edge);
+  border-radius: var(--radius-buttons);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: var(--shadow-subtle);
+}
+
+.code-window-header {
+  background: var(--color-charcoal-panel);
+  border-bottom: 1px solid var(--color-slate-edge);
+  padding: 8px 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.code-traffic-lights {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.traffic-light {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+.traffic-light.red { background: #ff5f56; }
+.traffic-light.yellow { background: #ffbd2e; }
+.traffic-light.green { background: #27c93f; }
+
+.code-tabs-switcher {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: var(--color-ink-surface);
+  border: 1px solid var(--color-slate-edge);
+  padding: 2px;
+  border-radius: 8px;
+}
+
+.code-tab-btn {
+  background: transparent;
+  border: none;
+  color: var(--color-misted-slate);
+  font-family: var(--font-inter);
+  font-size: 12px;
+  font-weight: 500;
+  padding: 4px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.15s ease;
+}
+
+.code-tab-btn.active {
+  background: var(--color-steel-panel);
+  color: var(--color-cloud-white);
+  box-shadow: var(--shadow-subtle);
+}
+
+.code-actions-box {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.code-copy-btn {
+  background: transparent;
+  border: 1px solid var(--color-slate-edge);
+  color: var(--color-frost-text);
+  font-size: 11px;
+  font-family: var(--font-mono);
+  padding: 4px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.15s ease;
+}
+
+.code-copy-btn:hover {
+  background: var(--color-steel-panel);
+  border-color: var(--color-misted-slate);
+  color: var(--color-cloud-white);
+}
+
+.code-body-pre {
+  margin: 0;
+  padding: 16px;
+  overflow-x: auto;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  line-height: 1.6;
+  background: var(--color-ink-surface);
+  color: var(--color-frost-text);
+  flex: 1;
+  max-height: 380px;
+}
+
+/* Columna Derecha: Gráfica de Ejecución Pyplot */
+.graph-window-frame {
+  background: var(--color-ink-surface);
+  border: 1px solid var(--color-slate-edge);
+  border-radius: var(--radius-buttons);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: var(--shadow-subtle);
+}
+
+.graph-window-header {
+  background: var(--color-charcoal-panel);
+  border-bottom: 1px solid var(--color-slate-edge);
+  padding: 8px 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.graph-window-title {
+  font-size: 12px;
+  font-family: var(--font-mono);
+  font-weight: 600;
+  color: var(--color-cloud-white);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.graph-window-title .pyplot-tag {
+  color: var(--color-signal-violet);
+  background: rgba(112, 100, 242, 0.15);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 10px;
+}
+
+.graph-status-badge {
+  font-size: 11px;
+  color: var(--color-emerald-success);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.graph-status-badge::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-emerald-success);
+  box-shadow: 0 0 6px var(--color-emerald-success);
+}
+
+.graph-canvas-container {
+  flex: 1;
+  height: 350px;
+  min-height: 320px;
+  position: relative;
+  padding: 12px;
+  background: #080a0f;
+  border-radius: var(--radius-inputs);
+  box-sizing: border-box;
+}
+
+.graph-canvas-container canvas {
+  width: 100% !important;
+  height: 100% !important;
+  display: block;
+}
+
+/* Comentario y Análisis Técnico al pie de la gráfica */
+.topic-analysis-box {
+  margin-top: var(--spacing-20);
+  background: var(--color-ink-surface);
+  border: 1px solid var(--color-slate-edge);
+  border-radius: var(--radius-buttons);
+  padding: 14px 18px;
+}
+
+.topic-analysis-title {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-quiet-slate);
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.topic-analysis-title::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-radius: 2px;
+  background: var(--color-cyan-glow);
+}
+
+.topic-analysis-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.topic-analysis-item {
+  font-size: 13px;
+  line-height: 1.55;
+  color: var(--color-frost-text);
+  position: relative;
+  padding-left: 18px;
+}
+
+.topic-analysis-item::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  color: var(--color-signal-violet);
+  font-size: 12px;
+}
+
+/* --------------------------------------------------------------------------
+   6. SANDBOX / BANCO DE PRUEBAS INTERACTIVO
+   -------------------------------------------------------------------------- */
+.sandbox-card {
+  background: var(--color-charcoal-panel);
+  border: 1px solid var(--color-slate-edge);
+  border-radius: var(--radius-panels);
+  padding: var(--spacing-32);
+  box-shadow: var(--shadow-subtle-2);
+  margin: var(--spacing-48) 0;
+}
+
+.sandbox-form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)) auto;
+  gap: var(--spacing-16);
+  align-items: flex-end;
+  margin: var(--spacing-20) 0;
+}
+
+.sandbox-input-group label {
+  display: block;
+  font-size: 12px;
+  font-family: var(--font-mono);
+  color: var(--color-misted-slate);
+  margin-bottom: 6px;
+}
+
+.sandbox-input {
+  width: 100%;
+  background: var(--color-ink-surface);
+  border: 1px solid var(--color-slate-edge);
+  color: var(--color-cloud-white);
+  font-family: var(--font-mono);
+  font-size: 14px;
+  padding: 10px 14px;
+  border-radius: var(--radius-inputs);
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.sandbox-input:focus {
+  border-color: var(--color-signal-violet);
+}
+
+/* --------------------------------------------------------------------------
+   7. CONCLUSIONES POR ESTUDIANTE Y OBSERVACIONES (Página 9 Guía)
+   -------------------------------------------------------------------------- */
+.conclusions-section {
+  padding: var(--spacing-48) 0;
+}
+
+.conclusions-students-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: var(--spacing-24);
+  margin-top: var(--spacing-24);
+}
+
+.conclusion-card {
+  background: var(--color-charcoal-panel);
+  border: 1px solid var(--color-slate-edge);
+  border-radius: var(--radius-panels);
+  padding: var(--spacing-24);
+  box-shadow: var(--shadow-subtle);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.conclusion-card:hover {
+  border-color: var(--color-signal-violet);
+  transform: translateY(-2px);
+}
+
+.conclusion-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-bottom: var(--spacing-16);
+  border-bottom: 1px solid var(--color-slate-edge);
+  margin-bottom: var(--spacing-16);
+}
+
+.conclusion-avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: var(--color-steel-panel);
+  border: 1px solid var(--color-slate-edge);
+  color: var(--color-cloud-white);
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.conclusion-student-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-cloud-white);
+}
+
+.conclusion-student-topics {
+  font-size: 11px;
+  font-family: var(--font-mono);
+  color: var(--color-signal-violet);
+}
+
+.conclusion-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
+}
+
+.conclusion-item {
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--color-frost-text);
+  padding-left: 20px;
+  position: relative;
+}
+
+.conclusion-item::before {
+  content: counter(item, decimal) '.';
+  counter-increment: item;
+  position: absolute;
+  left: 0;
+  color: var(--color-signal-violet);
+  font-weight: 600;
+  font-family: var(--font-mono);
+}
+
+.conclusion-list {
+  counter-reset: item;
+}
+
+/* --------------------------------------------------------------------------
+   8. TABLA DE REFERENCIAS BIBLIOGRÁFICAS
+   -------------------------------------------------------------------------- */
+.biblio-table-frame {
+  margin-top: var(--spacing-32);
+  background: var(--color-charcoal-panel);
+  border: 1px solid var(--color-slate-edge);
+  border-radius: var(--radius-panels);
+  overflow: hidden;
+}
+
+.biblio-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 13px;
+}
+
+.biblio-table th {
+  background: var(--color-ink-surface);
+  color: var(--color-cloud-white);
+  font-weight: 600;
+  padding: 12px 18px;
+  border-bottom: 1px solid var(--color-slate-edge);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.biblio-table td {
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--color-slate-edge);
+  color: var(--color-frost-text);
+}
+
+.biblio-table tr:last-child td {
+  border-bottom: none;
+}
+
+.biblio-table tr:hover td {
+  background: var(--color-steel-panel);
+}
+
+/* --------------------------------------------------------------------------
+   9. FOOTER INSTITUCIONAL
+   -------------------------------------------------------------------------- */
+.site-footer {
+  background: var(--color-ink-surface);
+  border-top: 1px solid var(--color-slate-edge);
+  padding: var(--spacing-32) 0;
+  text-align: center;
+  margin-top: var(--spacing-64);
+}
+
+.site-footer p {
+  font-size: 13px;
+  color: var(--color-misted-slate);
+  margin-bottom: 4px;
+}
+
+.site-footer .subline {
+  font-size: 11px;
+  font-family: var(--font-mono);
+  color: var(--color-quiet-slate);
+}
+
+/* --------------------------------------------------------------------------
+   10. SYNTAX HIGHLIGHTING (Estilo VS Code Dark+ / Featurebase)
+   -------------------------------------------------------------------------- */
+.hl-kw { color: #c084fc; font-weight: 600; }
+.hl-fn { color: #38bdf8; }
+.hl-lib { color: #02e5ef; font-weight: 500; }
+.hl-str { color: #34d399; }
+.hl-num { color: #fbbf24; }
+.hl-comment { color: #8f94a6; font-style: italic; }
+
+/* Toast Notifications */
+.toast {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: var(--color-steel-panel);
+  border: 1px solid var(--color-signal-violet);
+  color: var(--color-cloud-white);
+  padding: 10px 18px;
+  border-radius: var(--radius-buttons);
+  font-size: 13px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.25s ease;
+  pointer-events: none;
+  z-index: 100000;
+}
+.toast.show {
+  opacity: 1;
+  transform: translateY(0);
+}
